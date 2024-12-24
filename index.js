@@ -2,7 +2,8 @@ import express from "express";
 import DBConnection from "./databaseconn.js";
 import path from "path"
 import { staticrouter } from "./routes/static.routes.js";
-
+import { userRouter } from "./routes/user.routes.js";
+import bodyParser from "body-parser";
 
 const app  = express();
 
@@ -14,6 +15,7 @@ app.use(express.urlencoded({
   limit :"50kb"
 }))
 
+// app.use(bodyParser());
 
 
 
@@ -30,6 +32,9 @@ app.get("/" , (req , res)=>{
 //static page routing......
 app.use(staticrouter);
 
+
+//user routes
+app.use("/user" , userRouter);
 
 
 
