@@ -1,8 +1,9 @@
+// import { use } from "express/lib/application.js";
 import { User } from "../model/user.model.js";
+import jwt from "jsonwebtoken";
 
 
-
-
+const key = "supaerman@123";
 
 const usersignup = async(req , res) =>{
 
@@ -135,10 +136,29 @@ const userlogin = async(req, res) =>{
         
     }
 
-    return res.render("home");
+    //token 
+    const token = jwt.sign({
+        _id : user._id,
+        username : user.username,
+        email : user.email,
+        role : user.role 
+    } , key);
+
+
+    return res
+    .cookie("token" , token)
+    .render("home");
 
 
 
 }
 
-export { usersignup , verifyuser , userlogin}
+
+const userlogout = async(req, res) =>{
+
+    return res.clearCookie("token").render("home");
+
+
+}
+
+export { usersignup , verifyuser , userlogin  , userlogout}

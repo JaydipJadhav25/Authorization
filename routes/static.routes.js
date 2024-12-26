@@ -18,6 +18,11 @@ staticrouter.get("/otp" , (req , res)=>{
     return res.render("otp");
 })
 
+// staticrouter.get("/otp" , (req , res)=>{
+//     return res.render("otp");
+// })
+
+
 
 
 

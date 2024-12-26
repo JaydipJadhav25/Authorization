@@ -4,8 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashbord</title>
+    <style>
+         h2 {
+            text-align: center;
+        }
+        body{
+            background-color: cadetblue;
+        }
+    </style>
 </head>
 <body>
     <h1>Dashbord PAge</h1>
+
+    <% if (locals.email) { %>
+        <h2><%= locals.email %></h2>
+       <% } %>
+
+    <a href="/user/logout"><button>LogOUt </button></a>
+    <a href="/admin"><button>BOTH Admin</button></a>
+    <a href="/main"><button>Only Admin</button></a>
 </body>
 </html>

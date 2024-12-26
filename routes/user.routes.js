@@ -1,5 +1,5 @@
 import { Router  } from "express";
-import { userlogin, usersignup, verifyuser } from "../controllers/user.controllers.js";
+import { userlogin, userlogout, usersignup, verifyuser } from "../controllers/user.controllers.js";
 
 
 const userRouter = Router();
@@ -16,6 +16,7 @@ userRouter.get("/" , (req , res)=>{
 userRouter.post("/signup" , usersignup);
 userRouter.post("/verifyotp" , verifyuser);
 userRouter.post("/login" , userlogin);
+userRouter.get("/logout" , userlogout);
 
 
 
